@@ -4,6 +4,7 @@ from scrapy.item import Item, Field
 
 class LjwShDtfItem(Item):
     # 房屋属性
+    link_url = Field()  # 链接
     title = Field()     # 标题
     price = Field()     # 价格
     rooms = Field()     # 户型

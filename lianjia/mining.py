@@ -9,16 +9,25 @@ import json
 # 转换为DataFrame
 # df = DataFrame(jsondata)
 # 保存为csv文件
-# df.to_csv('houses.csv', sep=';')
+# df.to_csv('houses.csv', sep=';', encoding='utf-8')
 
 # 读取csv文件
-data = DataFrame('./houses.csv', sep=';')
+data = pd.read_csv('./houses.csv', sep=';')
 # 副本
 df0 = data
 # 添加新列： 价格/面积
 df0['fate'] = pd.Series(df0['price']/df0['square'], index=df0.index)
 # 排序
-df0 = df.sort_values(by=['fate', 'price', 'square'])
+df0 = df.sort_values(by=['fate', 'square'])
 #df0 = data.sort_values(by=['price', 'square'], ascending=[False, False])
+#
+# 选择列
+df1 = df0[['address', 'floor', 'link_url', 'rooms', 'square', 'price', 'uptime']]
+# 选择发布时间
+df2 = df1[df1['uptime'] > 20160820]
+# 选择价格
+df3 = df2[df2['price'] < 4500]
 
-df2 = df.sort_values(by=['fate', 'price', 'square'])
+# 选择时间
+
+# 选择户型

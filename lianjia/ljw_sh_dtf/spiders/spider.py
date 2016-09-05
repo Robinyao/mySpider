@@ -43,6 +43,8 @@ class Spider(CrawlSpider):
         sel2 = Selector(response)
         # 抓取信息
         item = LjwShDtfItem()
+        # link_url = sel2.xpath('//div[@class="houseRecord"]/span[@class="houseNum"]').extract()
+        link_url = response.xpath('//div[@class="houseRecord"]/span[@class="houseNum"]').re(r'shz(\d+)')
         title = sel2.xpath('//div[@class="title"]/h1/text()').extract()
         price = sel2.xpath('//div[@class="houseInfo"]/div[@class="price"]/div/text()').extract()
         rooms = sel2.xpath('//div[@class="houseInfo"]/div[@class="room"]//*/text()').extract()
@@ -54,6 +56,10 @@ class Spider(CrawlSpider):
         community = sel2.xpath('//table[@class="aroundInfo"]//tr[3]/td/p//text()').extract()
         address = sel2.xpath('//table[@class="aroundInfo"]//tr[4]/td/p/text()').extract()
 
+        item['link_url'] = ''
+        for lu in link_url:
+            item['link_url'] += lu.strip()
+            item['link_url'].encode('utf-8').strip()
         item['title'] = ''
         for t in title:
             item['title'] += t.strip()
