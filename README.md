@@ -1,2 +1,0 @@
-# mySpider
-a spider repository
