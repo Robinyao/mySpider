@@ -14,6 +14,7 @@
 - `index.html`   # 数据展示页面
 - `solved.csv`   # 房源文件
 
+### 步骤
 > 1. `python -m SimpleHTTPServer 3000`   # 启动服务器
 
 > 2. 进入浏览器输入 `localhost:3000` 进入展示页面
