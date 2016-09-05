@@ -5,11 +5,11 @@ import matplotlib.pyplot as plt
 import json
 
 # 读取json文件
-# jsondata = json.load(open('./houses.json'))
+jsondata = json.load(open('./houses.json'))
 # 转换为DataFrame
-# df = DataFrame(jsondata)
+df = DataFrame(jsondata)
 # 保存为csv文件
-# df.to_csv('houses.csv', sep=';', encoding='utf-8')
+df.to_csv('houses.csv', sep=';', encoding='utf-8', header=None)
 
 # 读取csv文件
 data = pd.read_csv('./houses.csv', sep=';')
